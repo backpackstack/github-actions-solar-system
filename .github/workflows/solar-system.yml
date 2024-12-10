@@ -39,24 +39,24 @@ jobs:
             path: test-results.xml
 
     Code-Coverage-Result:
-        name: Code-Coverage
-        runs-on: ubuntu-latest
-        steps: 
-        - name: Checkout Repo
-          uses: actions/checkout@v4
-          with:
-            node-version: 18
+          name: Code-Coverage
+          runs-on: ubuntu-latest
+          steps: 
+          - name: Checkout Repo
+            uses: actions/checkout@v4
+            with:
+              node-version: 18
 
-        - name: Install NodeJS Dependencies
-          run: npm install
+          - name: Install NodeJS Dependencies
+            run: npm install
 
-        - name:  Run Code-coverage command 
-        - continue-on-error: true
-          run: npm run code-coverage
+          - name:  Run Code-coverage command 
+          - continue-on-error: true
+            run: npm run code-coverage
 
-        - name: Upload Results
-          uses: actions/upload-artifact@v4
-          with:
-            name: CCR
-            path: coverage
-            retention-days: 5
+          - name: Upload Results
+            uses: actions/upload-artifact@v4
+            with:
+              name: CCR
+              path: coverage
+              retention-days: 5
